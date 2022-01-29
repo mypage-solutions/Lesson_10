@@ -23,13 +23,11 @@ public class CashMachine {
         for (Fruit fruit : fruits) {
             itemSum = round(fruit.getWeight() * fruit.getPricePerKg() / 1000.0, 2);
             sum += itemSum;
-            if (fruit.getType() == Fruit.FruitType.LEMON) {
-                fruitItem = Fruit.FruitType.LEMON.getFruit();
-            } else if (fruit.getType() == Fruit.FruitType.BANANA) {
-                fruitItem = Fruit.FruitType.BANANA.getFruit();
-            } else if (fruit.getType() == Fruit.FruitType.APPLE) {
-                fruitItem = Fruit.FruitType.APPLE.getFruit();
-            }
+            fruitItem = switch (fruit.getType()) {
+                case LEMON -> Fruit.FruitType.LEMON.getFruit();
+                case BANANA -> Fruit.FruitType.BANANA.getFruit();
+                case APPLE -> Fruit.FruitType.APPLE.getFruit();
+            };
             System.out.printf("%-10s%8.2f%n", fruitItem, itemSum);
         }
         System.out.println("==================");
