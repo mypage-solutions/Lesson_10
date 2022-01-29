@@ -22,10 +22,12 @@ public class Main {
         cashMachine.add(redApple);
         cashMachine.add(greenApple);
         cashMachine.printBill();
+        System.out.println("Information of existing products:");
         lemon.getInfo();
         banana.getInfo();
         redApple.getInfo();
         greenApple.getInfo();
+        System.out.println("\nInformation of not existing products:");
         yellowApple.getInfo();
 
     }
