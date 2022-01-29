@@ -19,10 +19,18 @@ public class CashMachine {
     public void printBill() {
         double sum = 0;
         double itemSum;
+        String fruitItem = "";
         for (Fruit fruit : fruits) {
             itemSum = round(fruit.getWeight() * fruit.getPricePerKg() / 1000.0, 2);
             sum += itemSum;
-            System.out.printf("%-10s%8.2f%n", fruit.getType(), itemSum);
+            if (fruit.getType() == Fruit.FruitType.LEMON) {
+                fruitItem = Fruit.FruitType.LEMON.getFruit();
+            } else if (fruit.getType() == Fruit.FruitType.BANANA) {
+                fruitItem = Fruit.FruitType.BANANA.getFruit();
+            } else if (fruit.getType() == Fruit.FruitType.APPLE) {
+                fruitItem = Fruit.FruitType.APPLE.getFruit();
+            }
+            System.out.printf("%-10s%8.2f%n", fruitItem, itemSum);
         }
         System.out.println("==================");
         System.out.printf("%-10s%8.2f%n%n", "Total:", sum);
