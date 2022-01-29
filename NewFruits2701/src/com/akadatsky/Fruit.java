@@ -2,6 +2,23 @@ package com.akadatsky;
 
 public class Fruit {
 
+    public enum Color {
+        RED, YELLOW, GREEN
+    }
+
+    public enum FruitType {
+        APPLE("Apple"), LEMON("Lemon"), BANANA("Banana");
+        final String fruit;
+
+        FruitType(String fruit) {
+            this.fruit = fruit;
+        }
+
+        public String getFruit() {
+            return fruit;
+        }
+    }
+
     private FruitType type;
     private Color color;
     private double pricePerKg;
@@ -16,6 +33,10 @@ public class Fruit {
 
     public FruitType getType() {
         return type;
+    }
+
+    public Color getColor() {
+        return color;
     }
 
     public double getPricePerKg() {
