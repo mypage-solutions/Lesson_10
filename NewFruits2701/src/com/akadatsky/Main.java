@@ -14,7 +14,6 @@ public class Main {
         Fruit banana = new Banana(198);
         Fruit redApple = new AppleRed(228);
         Fruit greenApple = new AppleGreen(232);
-        Fruit yellowApple = new Apple(Color.YELLOW, 0.0, 0);
 
         CashMachine cashMachine = new CashMachine();
         cashMachine.add(lemon);
@@ -27,8 +26,6 @@ public class Main {
         banana.getInfo();
         redApple.getInfo();
         greenApple.getInfo();
-        System.out.println("\nInformation of not existing products:");
-        yellowApple.getInfo();
 
     }
 }
