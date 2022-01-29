@@ -11,11 +11,16 @@ public class CashMachine {
         fruits.add(fruit);
     }
 
+    public static double round(double value, int places) {
+        double scale = Math.pow(10, places);
+        return Math.round(value * scale) / scale;
+    }
+
     public void printBill() {
         double sum = 0;
         double itemSum;
         for (Fruit fruit : fruits) {
-            itemSum = fruit.getWeight() * fruit.getPricePerKg() / 1000.0;
+            itemSum = round(fruit.getWeight() * fruit.getPricePerKg() / 1000.0, 2);
             sum += itemSum;
             System.out.printf("%-10s%8.2f%n", fruit.getType(), itemSum);
         }
