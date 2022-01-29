@@ -19,7 +19,7 @@ public class CashMachine {
     public void printBill() {
         double sum = 0;
         double itemSum;
-        String fruitItem = "";
+        String fruitItem;
         for (Fruit fruit : fruits) {
             itemSum = round(fruit.getWeight() * fruit.getPricePerKg() / 1000.0, 2);
             sum += itemSum;
