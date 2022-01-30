@@ -3,19 +3,28 @@ package com.akadatsky;
 public class Fruit {
 
     public enum Color {
-        RED, YELLOW, GREEN
+        RED("Red"), YELLOW("Yellow"), GREEN("Green");
+        final String color;
+
+        Color(String color) {
+            this.color = color;
+        }
+
+        public String getColor() {
+            return color;
+        }
     }
 
     public enum FruitType {
         APPLE("Apple"), LEMON("Lemon"), BANANA("Banana");
-        final String fruit;
+        final String type;
 
-        FruitType(String fruit) {
-            this.fruit = fruit;
+        FruitType(String type) {
+            this.type = type;
         }
 
-        public String getFruit() {
-            return fruit;
+        public String getFruitType() {
+            return type;
         }
     }
 
@@ -47,9 +56,25 @@ public class Fruit {
         return weight;
     }
 
+    public String fruitTypeConvert() {
+        return switch (this.type) {
+            case LEMON -> FruitType.LEMON.getFruitType();
+            case BANANA -> FruitType.BANANA.getFruitType();
+            case APPLE -> FruitType.APPLE.getFruitType();
+        };
+    }
+
+    public String colorConvert() {
+        return switch (this.color) {
+            case RED -> Color.RED.getColor();
+            case YELLOW -> Color.YELLOW.getColor();
+            case GREEN -> Color.GREEN.getColor();
+        };
+    }
+
     public void getInfo() {
         double weight = this.weight / 1000d;
         System.out.printf("FruitType: %s, Color: %s, Price: %.2f, Weight: %.3f kg.%n",
-                this.type, this.color, this.pricePerKg, weight);
+                fruitTypeConvert(), colorConvert(), this.pricePerKg, weight);
     }
 }
