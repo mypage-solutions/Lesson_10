@@ -16,7 +16,7 @@ public class CashMachine {
         return Math.round(value * scale) / scale;
     }
 
-    public String colorConvert (Fruit.FruitType fruit) {
+    public String typeConvert(Fruit.FruitType fruit) {
         return switch (fruit) {
             case LEMON -> Fruit.FruitType.LEMON.getFruitType();
             case BANANA -> Fruit.FruitType.BANANA.getFruitType();
@@ -27,12 +27,10 @@ public class CashMachine {
     public void printBill() {
         double sum = 0;
         double itemSum;
-        String fruitItem;
         for (Fruit fruit : fruits) {
             itemSum = round(fruit.getWeight() * fruit.getPricePerKg() / 1000.0, 2);
             sum += itemSum;
-            fruitItem = colorConvert(fruit.getType());
-            System.out.printf("%-10s%8.2f%n", fruitItem, itemSum);
+            System.out.printf("%-10s%8.2f%n", typeConvert(fruit.getType()), itemSum);
         }
         System.out.println("==================");
         System.out.printf("%-10s%8.2f%n%n", "Total:", sum);
