@@ -1,6 +1,6 @@
 package com.akadatsky;
 
-public class Fruit {
+public abstract class Fruit {
 
     public enum Color {
         RED("Red"), YELLOW("Yellow"), GREEN("Green");

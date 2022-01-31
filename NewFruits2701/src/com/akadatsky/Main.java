@@ -10,10 +10,10 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        Fruit lemon = new Lemon(198);
-        Fruit banana = new Banana(198);
-        Fruit redApple = new AppleRed(228);
-        Fruit greenApple = new AppleGreen(232);
+        Lemon lemon = new Lemon(198);
+        Banana banana = new Banana(198);
+        Apple redApple = new AppleRed(228);
+        Apple greenApple = new AppleGreen(232);
 
         CashMachine cashMachine = new CashMachine();
         cashMachine.add(lemon);
